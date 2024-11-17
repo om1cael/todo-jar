@@ -16,7 +16,7 @@ public class TodoApp {
         Task task = new Task(getTasks().size(), description, dueDate, false);
 
         if(fileSystemHandler.handleTaskWriting(task)) {
-            System.out.println("Task " + task.getDescription() + " was added successfully.");
+            System.out.println("Task " + task.description() + " was added successfully.");
             return;
         }
 
@@ -33,9 +33,9 @@ public class TodoApp {
         if(!getTasks().isEmpty()) {
             System.out.println("List of tasks:");
             for(Task task : getTasks()) {
-                System.out.println("Task [" + task.getId() + "]: " + task.getDescription());
-                System.out.println(" Due date: " + task.getDueDate());
-                System.out.println(" Completed: " + task.isCompleted());
+                System.out.println("Task [" + task.id() + "]: " + task.description());
+                System.out.println(" Due date: " + task.dueDate());
+                System.out.println(" Completed: " + task.completed());
             }
         }
     }

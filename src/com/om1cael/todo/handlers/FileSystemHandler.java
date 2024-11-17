@@ -17,7 +17,7 @@ public class FileSystemHandler {
 
     public boolean handleTaskWriting(Task task) {
         try(BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
-            writer.write(task.getId() + "|" + task.getDescription() + "|" + task.getDueDate() + "|" + task.isCompleted());
+            writer.write(task.id() + "|" + task.description() + "|" + task.dueDate() + "|" + task.completed());
             writer.newLine();
         } catch (IOException e) {
             System.out.println("Could not write to file.");
